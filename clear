@@ -1,0 +1,43 @@
+=> 
+[[32m#<User:0x00007f5ebdf0bb80[0m
+  id: [31m[1m"[0m[31mb8da2315-4130-4fef-afab-0b241e7947de[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  password_digest: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  created_at: [31m[1m"[0m[31m2025-05-31 04:34:36.745942000 +0000[0m[31m[1m"[0m,
+  updated_at: [31m[1m"[0m[31m2025-05-31 05:06:00.990718000 +0000[0m[31m[1m"[0m,
+  adm: [36m[1mtrue[0m[32m>[0m,
+ [32m#<User:0x00007f5ebdf0af00[0m
+  id: [31m[1m"[0m[31md2a8ae0f-987a-41f2-b14f-0e85a23ad9b1[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  password_digest: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  created_at: [31m[1m"[0m[31m2025-05-31 05:07:41.738043000 +0000[0m[31m[1m"[0m,
+  updated_at: [31m[1m"[0m[31m2025-05-31 05:07:41.738043000 +0000[0m[31m[1m"[0m,
+  adm: [36m[1mfalse[0m[32m>[0m,
+ [32m#<User:0x00007f5ebdf0ac80[0m
+  id: [31m[1m"[0m[31m6864a114-9543-4a1b-9820-682493faf342[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  password_digest: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  created_at: [31m[1m"[0m[31m2025-06-02 02:00:19.529910000 +0000[0m[31m[1m"[0m,
+  updated_at: [31m[1m"[0m[31m2025-06-02 02:00:19.529910000 +0000[0m[31m[1m"[0m,
+  adm: [36m[1mtrue[0m[32m>[0m,
+ [32m#<User:0x00007f5ebdf0aa00[0m
+  id: [31m[1m"[0m[31m9dcfe765-5224-445c-a385-666da1babfab[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  password_digest: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  created_at: [31m[1m"[0m[31m2025-06-04 02:13:29.429657000 +0000[0m[31m[1m"[0m,
+  updated_at: [31m[1m"[0m[31m2025-06-04 02:13:29.429657000 +0000[0m[31m[1m"[0m,
+  adm: [36m[1mfalse[0m[32m>[0m,
+ [32m#<User:0x00007f5ebdf0a780[0m
+  id: [31m[1m"[0m[31m2edc1f0c-30ca-4019-a268-3363baffb8db[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  password_digest: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  created_at: [31m[1m"[0m[31m2025-06-04 02:17:17.487188000 +0000[0m[31m[1m"[0m,
+  updated_at: [31m[1m"[0m[31m2025-06-04 02:17:17.487188000 +0000[0m[31m[1m"[0m,
+  adm: [36m[1mtrue[0m[32m>[0m,
+ [32m#<User:0x00007f5ebdf0a3c0[0m
+  id: [31m[1m"[0m[31m8e3b33aa-951d-445b-b3cd-2dfaef31ecc0[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  password_digest: [31m[1m"[0m[31m[FILTERED][0m[31m[1m"[0m,
+  created_at: [31m[1m"[0m[31m2025-06-04 02:18:12.811385000 +0000[0m[31m[1m"[0m,
+  updated_at: [31m[1m"[0m[31m2025-06-04 02:18:12.811385000 +0000[0m[31m[1m"[0m,
+  adm: [36m[1mtrue[0m[32m>[0m]

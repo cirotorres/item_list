@@ -1,4 +1,4 @@
 class Item < ApplicationRecord
+  has_one_attached :image
   validates :name, :price, presence: true
-  # has_one_attached :image_main
 end

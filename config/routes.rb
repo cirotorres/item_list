@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   post "/login", to: "auth#login"
   post "/register", to: "user#create"
-  resources :items
+  resources :items do
+    delete "images/:image_id", to: "items#purge_image", as: :purge_item_image
+  end
 end

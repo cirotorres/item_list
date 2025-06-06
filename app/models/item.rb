@@ -1,4 +1,12 @@
 class Item < ApplicationRecord
-  has_one_attached :image
+  has_many_attached :images
   validates :name, :price, presence: true
+  validate :limit_images_count
+
+  private
+  def limit_images_count
+    if images.size > 5
+      errors.add(:images, "máximo de 5 imagens")
+    end
+  end
 end

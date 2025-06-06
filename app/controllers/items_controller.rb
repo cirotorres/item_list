@@ -19,22 +19,35 @@ class ItemsController < ApplicationController
   # POST /items
   def create
     @item = Item.new(item_params)
-    @item.image.attach(params[:image]) if params[:image].present?
+
+    if params[:images]
+      params[:images].each { |img| @item.images.attach(img) }
+    end
 
     if @item.save
-      render json: @item, status: :created, location: @item
+      render json: item_response(@item), status: :created
     else
-      render json: @item.errors, status: :unprocessable_entity
+      Rails.logger.debug(@item.errors.full_messages)
+      render json: @item.errors.full_messages, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /items/1
   def update
-    @item.image.attach(params[:image]) if params[:image].present?
+    if params[:removed_image_ids].present?
+      image_ids = JSON.parse(params[:removed_image_ids])
+      image_ids.each do |img_id|
+        image = @item.images.find_by(id: img_id)
+        image.purge if image
+      end
+    end
+    if params[:images]
+      params[:images].each { |img| @item.images.attach(img) }
+    end
     if @item.update(item_params)
       render json: item_response(@item)
     else
-      render json: @item.errors, status: :unprocessable_entity
+      render json: @item.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -51,11 +64,22 @@ class ItemsController < ApplicationController
       price: item.price,
       description: item.description
     }
-    if item.image.attached?
-      response[:image_url] = url_for(item.image)
-      response[:thumb_url] = url_for(item.image.variant(resize_to_limit: [ 150, 150 ]))
+    if item.images.attached?
+      response[:images] = item.images.map do |img|
+        {
+          id: img.id,
+          url: url_for(img),
+          thumb_url: url_for(img.variant(resize_to_limit: [ 150, 150 ]))
+        }
+      end
     end
     response
+  end
+
+  def purge_image
+    image = ActiveStorage::Attachment.find(params[:image_id])
+    image.purge
+    head :no_content
   end
 
 

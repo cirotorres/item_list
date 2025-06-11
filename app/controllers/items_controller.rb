@@ -44,6 +44,7 @@ class ItemsController < ApplicationController
     if params[:images]
       params[:images].each { |img| @item.images.attach(img) }
     end
+
     if @item.update(item_params)
       render json: item_response(@item)
     else

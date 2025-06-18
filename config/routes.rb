@@ -11,8 +11,16 @@ Rails.application.routes.draw do
   # root "posts#index"
   post "/login", to: "auth#login"
   post "/register", to: "user#create"
+
   patch "/me", to: "user#update_me"
   get "/me", to: "user#me"
+
+  # CARRINHO
+  get    "cart",             to: "carts#show"
+  post   "cart/add_item",    to: "carts#add_item"
+  delete "cart/remove_item", to: "carts#remove_item"
+  post   "cart/finalize",    to: "carts#finalize"
+
   resources :items do
     delete "images/:image_id", to: "items#purge_image", as: :purge_item_image
   end

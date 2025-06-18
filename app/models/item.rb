@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   validates :name, :price, presence: true
   validate :limit_images_count
 
+  has_many :cart_items
   private
   def limit_images_count
     if images.size > 5

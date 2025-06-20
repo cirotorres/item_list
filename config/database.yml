@@ -13,11 +13,16 @@
 # gem "pg"
 #
 default: &default
+  # adapter: postgresql
+  # encoding: unicode
+  # # For details on connection pooling, see Rails configuration guide
+  # # https://guides.rubyonrails.org/configuring.html#database-pooling
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+  username: item_list
+  password: <%= ENV["ITEM_LIST_DATABASE_PASSWORD"] %>
 
 development:
   <<: *default
@@ -78,28 +83,20 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  url: <%= ENV["DATABASE_URL"] %>
+  <<: *default
+  database: item_list_production
+
   queue:
     <<: *default
-    database: item_list_queue_production
-    username: item_list
-    password: <%= ENV["ITEM_LIST_DATABASE_PASSWORD"] %>
+    database: item_list_production_queue
     migrations_paths: db/queue_migrate
-  # primary: &primary_production
-  #   <<: *default
-  #   database: item_list_production
-  #   username: item_list
-  #   password: <%= ENV["ITEM_LIST_DATABASE_PASSWORD"] %>
+
   cache:
     <<: *default
     database: item_list_production_cache
     migrations_paths: db/cache_migrate
-  # queue:
-  #   <<: *primary_production
-  #   database: item_list_production_queue
-  #   migrations_paths: db/queue_migrate
+
   cable:
-    url: <%= ENV["DATABASE_URL"] %>
-  #   <<: *primary_production
-  #   database: item_list_production_cable
-  #   migrations_paths: db/cable_migrate
+    <<: *default
+    database: item_list_production_cable
+    migrations_paths: db/cable_migrate

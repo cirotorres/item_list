@@ -83,20 +83,28 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: item_list_production
-
+  url: <%= ENV["DATABASE_URL"] %>
   queue:
     <<: *default
-    database: item_list_production_queue
+    database: item_list_queue_production
+    username: item_list
+    password: <%= ENV["ITEM_LIST_DATABASE_PASSWORD"] %>
     migrations_paths: db/queue_migrate
-
+  # primary: &primary_production
+  #   <<: *default
+  #   database: item_list_production
+  #   username: item_list
+  #   password: <%= ENV["ITEM_LIST_DATABASE_PASSWORD"] %>
   cache:
     <<: *default
     database: item_list_production_cache
     migrations_paths: db/cache_migrate
-
-  cable:
+  queue:
     <<: *default
-    database: item_list_production_cable
-    migrations_paths: db/cable_migrate
+    database: item_list_production_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    url: <%= ENV["DATABASE_URL"] %>
+  #   <<: *primary_production
+  #   database: item_list_production_cable
+  #   migrations_paths: db/cable_migrate

@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   validate :limit_images_count
 
   has_many :cart_items
+  has_many :favorites
   private
   def limit_images_count
     if images.size > 5

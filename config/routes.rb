@@ -21,6 +21,13 @@ Rails.application.routes.draw do
   delete "cart/remove_item", to: "carts#remove_item"
   post   "cart/finalize",    to: "carts#finalize"
 
+  get    "/orders",          to: "orders#index"
+
+  # FAVORITOS
+  post   "/favorites/add_item",       to: "favorites#add_fav"
+  delete "/favorites/:item_id",       to: "favorites#remove_fav"
+  get    "/favorites",                to: "favorites#show"
+
   resources :items do
     delete "images/:image_id", to: "items#purge_image", as: :purge_item_image
   end

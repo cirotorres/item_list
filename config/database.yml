@@ -91,7 +91,7 @@ production:
   #   username: item_list
   #   password: <%= ENV["ITEM_LIST_DATABASE_PASSWORD"] %>
   cache:
-    <<: *primary_production
+    <<: *default
     database: item_list_production_cache
     migrations_paths: db/cache_migrate
   # queue:

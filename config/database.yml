@@ -92,7 +92,8 @@ production:
   #   <<: *primary_production
   #   database: item_list_production_queue
   #   migrations_paths: db/queue_migrate
-  # cable:
+  cable:
+    url: <%= ENV["DATABASE_URL"] %>
   #   <<: *primary_production
   #   database: item_list_production_cable
   #   migrations_paths: db/cable_migrate

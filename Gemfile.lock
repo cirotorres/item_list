@@ -322,11 +322,6 @@ GEM
       ffi (~> 1.12)
       logger
     securerandom (0.4.1)
-    solid_cable (3.0.8)
-      actioncable (>= 7.2)
-      activejob (>= 7.2)
-      activerecord (>= 7.2)
-      railties (>= 7.2)
     solid_cache (1.0.7)
       activejob (>= 7.2)
       activerecord (>= 7.2)
@@ -393,7 +388,6 @@ DEPENDENCIES
   rspec-rails
   rswag
   rubocop-rails-omakase
-  solid_cable
   solid_cache
   solid_queue
   thruster

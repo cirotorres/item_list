@@ -3,8 +3,8 @@ class Item < ApplicationRecord
   validates :name, :price, presence: true
   validate :limit_images_count
 
-  has_many :cart_items
-  has_many :favorites
+  has_many :cart_items, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   private
   def limit_images_count
     if images.size > 5

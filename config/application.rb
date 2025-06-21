@@ -17,9 +17,12 @@ module ItemList
     config.autoload_lib(ignore: %w[assets tasks])
 
     # CONFIG P DEPLOY
-    config.active_job.queue_adapter = :solid_queue
-    config.solid_queue.database = :production
+    # config.active_job.queue_adapter = :solid_queue
+    # config.solid_queue.database = :production
     config.active_job.queue_adapter = :async
+    config.api_only = true
+
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

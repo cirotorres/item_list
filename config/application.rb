@@ -16,6 +16,9 @@ module ItemList
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    # CONFIG P DEPLOY
+    config.active_job.queue_adapter = :solid_queue
+    config.solid_queue.database = :production
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

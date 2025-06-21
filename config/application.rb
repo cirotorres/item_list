@@ -19,6 +19,7 @@ module ItemList
     # CONFIG P DEPLOY
     config.active_job.queue_adapter = :solid_queue
     config.solid_queue.database = :production
+    config.active_job.queue_adapter = :async
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

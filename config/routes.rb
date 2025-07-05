@@ -9,26 +9,35 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  post "/login", to: "auth#login"
-  post "/register", to: "user#create"
+  post  "/login",    to: "auth#login"
+  post  "/register", to: "user#create"
 
-  patch "/me", to: "user#update_me"
-  get "/me", to: "user#me"
+  patch "/me",       to: "user#update_me"
+  get   "/me",       to: "user#me"
 
   # CARRINHO
-  get    "cart",             to: "carts#show"
-  post   "cart/add_item",    to: "carts#add_item"
-  delete "cart/remove_item", to: "carts#remove_item"
-  post   "cart/finalize",    to: "carts#finalize"
+  get    "cart",                to: "carts#show"
+  post   "cart/add_item",       to: "carts#add_item"
+  delete "cart/remove_item",    to: "carts#remove_item"
+  post   "cart/finalize",       to: "carts#finalize"
 
-  get    "/orders",          to: "orders#index"
+  get    "/orders",             to: "orders#index"
 
   # FAVORITOS
-  post   "/favorites/add_item",       to: "favorites#add_fav"
-  delete "/favorites/:item_id",       to: "favorites#remove_fav"
-  get    "/favorites",                to: "favorites#show"
+  post   "/favorites/add_item", to: "favorites#add_fav"
+  delete "/favorites/:item_id", to: "favorites#remove_fav"
+  get    "/favorites",          to: "favorites#show"
 
+  # PAGAMENTOS
+  post   "create_payment",     to: "payments#create"
+  get    "/payments/check",    to: "payments#check"
+  post   "/payments/webhook",  to: "payments#webhook"
+
+  # BANNERS
+  resources :announcements
+
+  # ITENS
   resources :items do
-    delete "images/:image_id", to: "items#purge_image", as: :purge_item_image
+    delete "images/:image_id",  to: "items#purge_image", as: :purge_item_image
   end
 end

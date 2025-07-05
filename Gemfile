@@ -51,3 +51,5 @@ gem "jwt"
 gem "rswag"
 gem "rack-cors"
 gem "image_processing"
+gem "mercadopago-sdk"
+gem "dotenv-rails", groups: [ :development, :test ]

@@ -7,11 +7,12 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "https://front-items-list.vercel.app", "http://localhost:5173"
+    origins "https://front-items-list.vercel.app", "http://localhost:5173", "https://light-cars-mate.loca.lt" # LT para o FRONT (5173)
 
     resource "*",
       headers: :any,
       expose: [ "Authorization" ],
-      methods: [ :get, :post, :put, :patch, :delete, :options, :head ]
+      methods: [ :get, :post, :put, :patch, :delete, :options, :head ],
+      credentials: true
   end
 end

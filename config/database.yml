@@ -90,7 +90,7 @@ production:
   username: <%= ENV['PGUSER'] %>
   password: <%= ENV['PGPASSWORD'] %>
   host: <%= ENV['PGHOST'] %>
-  port: <%= ENV['PGPORT'] %>
+  port: <%= ENV.fetch('PGPORT', 5432) %>
 
   # primary: &primary_production
   #   <<: *default
